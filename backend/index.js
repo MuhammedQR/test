@@ -11,9 +11,11 @@ app.use(
   cors({
     origin: process.env.FRONTEND_URL,
     credentials: true,
+    methods: "POST,GET,HEAD,PUT,PATCH,DELETE",
+    allowedHeaders: "Content-Type,Authorization",
   })
 );
-app.use(express.json({ limit: '10mb' })); // تحديد حد الحمولة لـ 10 ميجابايت
+app.use(express.json({ limit: "10mb" })); // تحديد حد الحمولة لـ 10 ميجابايت
 app.use(cookieParser());
 app.use("api", router);
 
